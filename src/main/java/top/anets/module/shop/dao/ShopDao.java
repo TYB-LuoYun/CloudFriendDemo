@@ -40,7 +40,7 @@ public class ShopDao {
         List<ShopExcel> shopExcels = null;
         Resource resource = resourceLoader.getResource("classpath:商品数据.xlsx");
         try (InputStream in = resource.getInputStream()){
-//          这个步骤，相当于读库,有条件的，如有需要，可预先全部加载到缓存
+//          这个步骤，相当于查库(商品数据.xlsx可能会变化),有条件的，如有需要表格数据无变化，可预先全部加载到缓存;
             shopExcels = ShopDao.readExcel(in, ids);
             System.out.println(shopExcels.size());
         }catch (Exception e){
